@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 function Topbar() {
   return (
     <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
@@ -223,9 +223,9 @@ function Topbar() {
         <div class="topbar-divider d-none d-sm-block"></div>
 
         <li class="nav-item dropdown no-arrow">
-          <a
+          <Link
             class="nav-link dropdown-toggle"
-            href="#"
+            to="/"
             id="userDropdown"
             role="button"
             data-toggle="dropdown"
@@ -233,13 +233,13 @@ function Topbar() {
             aria-expanded="false"
           >
             <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-              Douglas McGee
+              Login
             </span>
             <img
               class="img-profile rounded-circle"
               src="img/undraw_profile.svg"
             />
-          </a>
+          </Link>
 
           <div
             class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

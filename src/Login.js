@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Login() {
   return (
@@ -44,12 +45,12 @@ function Login() {
                           </label>
                         </div>
                       </div>
-                      <a
-                        href="index.html"
+                      <Link
+                        to="/Portal/Dashboard"
                         class="btn btn-primary btn-user btn-block"
                       >
                         Login
-                      </a>
+                      </Link>
                       <hr />
                       <a
                         href="index.html"
