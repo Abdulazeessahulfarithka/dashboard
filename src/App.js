@@ -7,14 +7,16 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./Login";
 import Userlist from "./Userlist";
 import Portal from "./Portal";
+import Usercreate from "./Usercreate";
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/Portal" element={<Portal />}>
-          <Route path="Dashboard" element={<Dashboard />} />
-          <Route path="Userlist" element={<Userlist />} />
+        <Route path="/portal" element={<Portal />}>
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="userlist" element={<Userlist />} />
+          <Route path="Usercreate" element={<Usercreate />} />
         </Route>
       </Routes>
     </BrowserRouter>
