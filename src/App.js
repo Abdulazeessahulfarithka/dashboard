@@ -8,6 +8,7 @@ import Login from "./Login";
 import Userlist from "./Userlist";
 import Portal from "./Portal";
 import Usercreate from "./Usercreate";
+import Userview from "./Userview";
 function App() {
   return (
     <BrowserRouter>
@@ -16,7 +17,8 @@ function App() {
         <Route path="/portal" element={<Portal />}>
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="userlist" element={<Userlist />} />
-          <Route path="Usercreate" element={<Usercreate />} />
+          <Route path="usercreate" element={<Usercreate />} />
+          <Route path="userview/:id" element={<Userview />} />
         </Route>
       </Routes>
     </BrowserRouter>
