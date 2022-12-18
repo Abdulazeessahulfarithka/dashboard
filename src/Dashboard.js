@@ -1,5 +1,6 @@
 import React from "react";
 import { Doughnut, Line } from "react-chartjs-2";
+import {} from "react-router-dom";
 import Card from "./Card";
 import {
   Chart as ChartJS,

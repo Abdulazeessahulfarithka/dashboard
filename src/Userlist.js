@@ -1,34 +1,27 @@
-import React from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 function Userlist() {
-  const data = [
-    {
-      id: 1,
-      username: "Abdul",
-      email: "kasahul5671@gmail.com",
-      country: "india",
-      state: "tamilnadu",
-      city: "karur",
-    },
-    {
-      id: 2,
-      username: "Azeez",
-      email: "kasahul5671@gmail.com",
-      country: "india",
-      state: "tamilnadu",
-      city: "karur",
-    },
-    {
-      id: 3,
-      username: "sahul",
-      email: "kasahul5671@gmail.com",
-      country: "india",
-      state: "tamilnadu",
-      city: "karur",
-    },
-  ];
-  const [searchParams, setParams] = useSearchParams();
-  console.log([...searchParams]);
+  const [userList, setUserlist] = useState([]);
+
+  useEffect(() => {
+    getUsers();
+  }, []);
+  let getUsers = async () => {
+    try {
+      const users = await axios.get(
+        "https://5cdd0a92b22718001417c19d.mockapi.io/api/users"
+      );
+      setUserlist(users.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    return () => {
+      console.log("Destroy...");
+    };
+  });
   return (
     <>
       <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -75,7 +68,7 @@ function Userlist() {
                 </tr>
               </tfoot>
               <tbody>
-                {data.map((user) => {
+                {userList.map((user) => {
                   return (
                     <tr>
                       <td>{user.id}</td>
@@ -92,7 +85,12 @@ function Userlist() {
                         >
                           view
                         </Link>
-                        <Link className="btn btn-info btn-sm mr-1">Edit</Link>
+                        <Link
+                          to={`/portal/useredit/${user.id}`}
+                          className="btn btn-info btn-sm mr-1"
+                        >
+                          Edit
+                        </Link>
                         <button className="btn btn-danger btn-sm mr-1">
                           Delete
                         </button>
